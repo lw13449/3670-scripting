@@ -1,17 +1,146 @@
-//cake pieces
-polyCylinder -r 2 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
-move -r 0 .5 0 ;
-rename "Tier_1";
+{
+    string $tiers[]={};
+    string $tempTiers[]={};
+    //cake pieces
+    $tempTiers = `polyCylinder -r 2 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1`;
+    move -r 0 .5 0 ;
+    $tempTiers[0] = `rename $tempTiers[0] "Tier_1"`;
+    $tiers[size($tiers)] = $tempTiers[0];
+    $tempTiers = `polyCylinder -r 1.5 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1`;
+    move -r 0 1 0 ;
+    $tempTiers[0] = `rename $tempTiers[0] "Tier_2"`;
+    $tiers[size($tiers)] = $tempTiers[0];
+    $tempTiers = `polyCylinder -r 1 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1`;
+    move -r 0 1.5 0 ;
+    $tempTiers[0] = `rename $tempTiers[0] "Tier_3"`;
+    $tiers[size($tiers)] = $tempTiers[0];    
 
-polyCylinder -r 1.5 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
-move -r 0 1 0 ;
-rename "Tier_2";
+    //frosting
+    select -r Tier_1 ;
+    select -r Tier_1.f[15] ;
+    select -tgl Tier_1.f[14] ;
+    select -add Tier_1.f[0:19] ;
+    polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -2.384185791e-07 -pvy 0.5 -pvz -3.576278687e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 Tier_1.f[0:19];
+    scale -r -p -2.38419e-07cm 0.5cm -3.57628e-07cm 1 0.184477 1 ;
+    move -r 0 0.354794 0 ;
+    polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -2.384185791e-07 -pvy 0.8547944129 -pvz -3.576278687e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 Tier_1.f[0:19];
+    setAttr "polyExtrudeFace2.localTranslate" -type double3 0 0 0.070514 ;
+    select -r Tier_1.vtx[112] ;
+    select -tgl Tier_1.vtx[108] ;
+    select -tgl Tier_1.vtx[104] ;
+    select -tgl Tier_1.vtx[100] ;
+    select -tgl Tier_1.vtx[96] ;
+    select -tgl Tier_1.vtx[92] ;
+    select -tgl Tier_1.vtx[88] ;
+    select -tgl Tier_1.vtx[83] ;
+    select -tgl Tier_1.vtx[120] ;
+    select -tgl Tier_1.vtx[116] ;
+    select -tgl Tier_1.vtx[76] ;
+    select -tgl Tier_1.vtx[72] ;
+    select -tgl Tier_1.vtx[80] ;
+    select -tgl Tier_1.vtx[43] ;
+    select -tgl Tier_1.vtx[48] ;
+    select -tgl Tier_1.vtx[52] ;
+    select -tgl Tier_1.vtx[56] ;
+    select -tgl Tier_1.vtx[60] ;
+    select -tgl Tier_1.vtx[64] ;
+    select -tgl Tier_1.vtx[68] ;
+    move -r 0 0.142681 0 ;
 
-polyCylinder -r 1 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
-move -r 0 1.5 0 ;
-rename "Tier_3";
+    select -r Tier_2 ;
+    select -add Tier_2.f[15] ;
+    select -r Tier_2.f[15] ;
+    select -tgl Tier_2.f[14] ;
+    select -add Tier_2.f[0:19] ;
+    hilite Tier_2.f[0:19] ;
+    selectMode -component ;
+    select -r Tier_2.f[0:19] ;
+    polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -1.788139343e-07 -pvy 1 -pvz -2.384185791e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 Tier_2.f[0:19];
+    setAttr "polyExtrudeFace3.localScale" -type double3 1 0.320307 1 ;
+    move -r 0 0.310699 0 ;
+    scale -r -p -1.78814e-07cm 1.310699cm -2.38419e-07cm 1 0.66072 1 ;
+    move -r 0 0.0726159 0 ;
+    polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -1.788139343e-07 -pvy 1.383314759 -pvz -2.384185791e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 Tier_2.f[0:19];
+    setAttr "polyExtrudeFace4.localTranslate" -type double3 0 0 0.0959968 ;
+    select -d Tier_2.f[0:19] ;
+    select -r Tier_2.vtx[110] ;
+    select -tgl Tier_2.vtx[70] ;
+    select -tgl Tier_2.vtx[114] ;
+    select -tgl Tier_2.vtx[74] ;
+    select -tgl Tier_2.vtx[118] ;
+    select -tgl Tier_2.vtx[78] ;
+    select -tgl Tier_2.vtx[82] ;
+    select -tgl Tier_2.vtx[42] ;
+    select -tgl Tier_2.vtx[86] ;
+    select -tgl Tier_2.vtx[46] ;
+    select -tgl Tier_2.vtx[90] ;
+    select -tgl Tier_2.vtx[50] ;
+    select -tgl Tier_2.vtx[94] ;
+    select -tgl Tier_2.vtx[54] ;
+    select -tgl Tier_2.vtx[98] ;
+    select -tgl Tier_2.vtx[58] ;
+    select -tgl Tier_2.vtx[102] ;
+    select -tgl Tier_2.vtx[62] ;
+    select -tgl Tier_2.vtx[106] ;
+    select -tgl Tier_2.vtx[66] ;
+    move -r 0 0.166941 0 ;
 
-$tiers[0] = "Tier_1";
-$tiers[1] = "Tier_2";
-$tiers[2] = "Tier_3";
-print $tiers;
+    select -r Tier_3 ;
+    select -tgl Tier_3.f[10] ;
+    select -tgl Tier_3.f[9] ;
+    select -add Tier_3.f[0:19] ;
+    hilite Tier_3.f[0:19] ;
+    selectMode -component ;
+    select -r Tier_3.f[0:19] ;
+    polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -1.192092896e-07 -pvy 1.5 -pvz -1.788139343e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 Tier_3.f[0:19];
+    setAttr "polyExtrudeFace5.localScale" -type double3 1 0.174281 1 ;
+    move -r 0 0.373918 0 ;
+    scale -r -p -1.19209e-07cm 1.873918cm -1.78814e-07cm 1 1.25505 1 ;
+    move -r 0 -0.0221641 0 ;
+    select -r Tier_3.f[0:19] ;
+    polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -1.192092896e-07 -pvy 1.851753742 -pvz -1.788139343e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 Tier_3.f[0:19];
+    setAttr "polyExtrudeFace6.localTranslate" -type double3 0 0 0.0968515 ;
+    select -d Tier_3.f[0:19] ;
+    select -d Tier_3.f[0:19] ;
+    select -tgl Tier_3.vtx[100] ;
+    select -tgl Tier_3.vtx[60] ;
+    select -tgl Tier_3.vtx[104] ;
+    select -tgl Tier_3.vtx[64] ;
+    select -tgl Tier_3.vtx[108] ;
+    select -tgl Tier_3.vtx[68] ;
+    select -tgl Tier_3.vtx[112] ;
+    select -tgl Tier_3.vtx[72] ;
+    select -tgl Tier_3.vtx[116] ;
+    select -tgl Tier_3.vtx[76] ;
+    select -tgl Tier_3.vtx[120] ;
+    select -tgl Tier_3.vtx[80] ;
+    select -tgl Tier_3.vtx[83] ;
+    select -tgl Tier_3.vtx[43] ;
+    select -tgl Tier_3.vtx[88] ;
+    select -tgl Tier_3.vtx[88] ;
+    select -tgl Tier_3.vtx[48] ;
+    select -tgl Tier_3.vtx[88] ;
+    select -tgl Tier_3.vtx[52] ;
+    select -tgl Tier_3.vtx[92] ;
+    select -tgl Tier_3.vtx[56] ;
+    select -tgl Tier_3.vtx[96] ;
+    move -r 0 0.158461 0 ; 
+
+    select -r Tier_1 ;
+    select -tgl Tier_2 ;
+    select -tgl Tier_3 ;
+    polySoftEdge -a 180 -ch 1 Tier_1;
+    polySoftEdge -a 180 -ch 1 Tier_2;
+    polySoftEdge -a 180 -ch 1 Tier_3;
+    
+    polyUnite $tiers;
+    rename "polySurface1" "Cake_Geo";
+    
+    group -empty -name "Cake_Geo_Grp";
+    
+    if (objExists("Cake_Geo_Grp"))
+    {
+        select -r "Cake_Geo" "Cake_Geo_Grp";
+        parent;
+    }
+}
