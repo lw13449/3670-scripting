@@ -1,0 +1,35 @@
+proc float Add(float $num1, float $num2)
+{
+    float $sum;
+    $sum = $num1 + $num2;
+    return $sum;
+}
+
+Add(334, 5);
+
+proc float Subtract(float $num1, float $num2)
+{
+    float $difference;
+    $difference = $num1 - $num2;
+    return $difference;
+}
+
+Subtract(390, 10);
+
+proc float Multiply(float $num1, float $num2)
+{
+    float $product;
+    $product = $num1 * $num2;
+    return $product;
+}
+
+Multiply(10, 10);
+
+proc float Divide(float $num1, float $num2)
+{
+    float $quotient;
+    $quotient = $num1 / $num2;
+    return $quotient;
+}
+
+Divide(10, 2);
