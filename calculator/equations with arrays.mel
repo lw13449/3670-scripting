@@ -74,14 +74,14 @@ Power(10,2);
 //Mean
 proc float Mean(float $num[])
 {
-     float $average;
+    float $average;
     float $sum = 0;
     for($i=0; $i<size($num); $i++)
     {
         $sum += $num[$i];
     }
     $average = $sum / size($num);
-    return $average;    
+    return $average;
     
 }
 
@@ -92,16 +92,39 @@ print $averagevalues;
 proc float Median(float $num[])
 {
     sort $num;
-    $ArraySize = size($num);
-    for($i=0; $i<$ArraySize; $i++)
+    float $ArraySize;
+    float $even;
+    float $odd;
+    int $numSize = size($num);
+    if($numSize % 2 == 0)
     {
-        
+        print ("even");
+        $ArraySize == $even;
     }
-    
-    //sort them
-    //find size
-    //statement if it is even or odd    
-    
+    else
+    {
+        print ("odd");
+        $ArraySize == $odd;
+    }
+    return ArraySize;
+    //Another for loop to find average if it is even
+    if($ArraySize == $even)
+    {
+        float $average
+        //
+        //
+        //
+        return $average;
+    }
+    else
+    {
+        float $middleNumber;
+        //
+        //
+        //
+        return $middleNumber;
+    }
+    //Another for loop to find middle number if it is odd
 }
 
 //Mode
