@@ -40,8 +40,8 @@ proc float MultiplyValues(float $num[])
     return $product;
 }
 
-int $numberproducts = MultiplyValues({1,1,2,3});
-print $numberproducts;
+int $numberProducts = MultiplyValues({1,1,2,3});
+print $numberProducts;
 
 //division
 
@@ -64,7 +64,7 @@ proc float Power(float $base, float $power)
     float $powerValue = $base;
     for($i=1; $i<$power; $i++)
     {
-        $powerValue *= $base;    
+        $powerValue *= $base;
     }
     return $powerValue;
 }
@@ -121,11 +121,13 @@ int $MedianValue = Median({4,10,4,3,7});
 //Mode
 proc float Mode(float $num[])
 {
+    sort $num;
     float $modeValues;
+    float $modeArray[] = {};
     for($number in $num)
     {
         //compare each number to each other to evaluate whether it is the same
-        //If it is the same, place number in $modeValues array
+        //If it is the same, place number in $modeArray array
         //
     }
     
