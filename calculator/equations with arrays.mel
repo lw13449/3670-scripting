@@ -91,41 +91,32 @@ print $averagevalues;
 //Median
 proc float Median(float $num[])
 {
-    sort $num;
-    float $ArraySize;
-    float $even;
-    float $odd;
     int $numSize = size($num);
+    float $median, $median1, $median2;
+    $num = `sort $num`;
+    
     if($numSize % 2 == 0)
     {
-        print ("even");
-        $ArraySize == $even;
+        //print ("even/n");
+        $median1 = $num[$numSize/2];
+        $median2 = $num[$numSize/2-1];
+        $median = ($median1 + $median2)/2;
+        //$ArraySize == $even;
     }
     else
     {
-        print ("odd");
-        $ArraySize == $odd;
+        //print ("odd/n");
+        //$ArraySize == $odd;
+        $median = $num[$numSize/2];
     }
-    return ArraySize;
+    //return ArraySize;
     //Another for loop to find average if it is even
-    if($ArraySize == $even)
-    {
-        float $average
-        //
-        //
-        //
-        return $average;
-    }
-    else
-    {
-        float $middleNumber;
-        //
-        //
-        //
-        return $middleNumber;
-    }
     //Another for loop to find middle number if it is odd
+    print $median;
+    return $median;
 }
+
+int $MedianValue = Median({4,10,4,3,7});
 
 //Mode
 proc float Mode(float $num[])
