@@ -111,25 +111,8 @@ proc float Median(float $num[])
 
 int $MedianValue = Median({4,10,4,3,7});
 
-//Mode
-proc float Mode(float $num[])
-{
-    sort $num;
-    float $modeValues;
-    float $modeArray[] = {};
-    for($number in $num)
-    {
-        //compare each number to each other to evaluate whether it is the same
-        //If it is the same, place number in $modeArray array
-        //
-    }
-    
-    return $modeValues;
-    
-    
-}
 
-//mode 2
+//mode 
 proc float Mode(float $num[])
 {
     float $values[];
@@ -147,11 +130,21 @@ proc float Mode(float $num[])
             int $index;
             $index = floatArrayFind($num[$i], 0, $values);
             $frequency[$index] = $frequency[$index] +1;
-        }        
+        }  
+        //return frequency index with list of values   
     }
-    //loop trough frequency to find highest value
+    //call frequency index for new loop
+    //loop through frequency to find highest value
+    for($value in $frequency)
+    {
+        //campare values and pick out the highest frequency
+        //figure out the associated value to frequency
+    }
+    //return highest frequency value
     
-   //return highest frequency
+}
+    
+   
 {
     float $modeValue; //value to return
     float $countArray[] = {}; //new array to evaluate what is the highest frequency number
