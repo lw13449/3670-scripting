@@ -96,22 +96,15 @@ proc float Median(float $num[])
     $num = `sort $num`;
     
     if($numSize % 2 == 0)
-    {
-        //print ("even/n");
+    {        
         $median1 = $num[$numSize/2];
         $median2 = $num[$numSize/2-1];
         $median = ($median1 + $median2)/2;
-        //$ArraySize == $even;
     }
     else
     {
-        //print ("odd/n");
-        //$ArraySize == $odd;
         $median = $num[$numSize/2];
     }
-    //return ArraySize;
-    //Another for loop to find average if it is even
-    //Another for loop to find middle number if it is odd
     print $median;
     return $median;
 }
@@ -136,8 +129,29 @@ proc float Mode(float $num[])
     
 }
 
-//Mode test
-proc float mode(float $num[])
+//mode 2
+proc float Mode(float $num[])
+{
+    float $values[];
+    float $frequency[];
+    
+    for($i=0; $i<size($num); $i++)
+    {
+        if(!floatArrayContains($num[$i], $values))
+        {
+            $values[size($values)] = $num[$i];
+            $frequency[size($values)] = 1;
+        }
+        else
+        {
+            int $index;
+            $index = floatArrayFind($num[$i], 0, $values);
+            $frequency[$index] = $frequency[$index] +1;
+        }        
+    }
+    //loop trough frequency to find highest value
+    
+   //return highest frequency
 {
     float $modeValue; //value to return
     float $countArray[] = {}; //new array to evaluate what is the highest frequency number
