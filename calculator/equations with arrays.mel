@@ -115,6 +115,7 @@ int $MedianValue = Median({4,10,4,3,7});
 //mode 
 proc float Mode(float $num[])
 {
+    float $modeValue;
     float $values[];
     float $frequency[];
     
@@ -130,56 +131,25 @@ proc float Mode(float $num[])
             int $index;
             $index = floatArrayFind($num[$i], 0, $values);
             $frequency[$index] = $frequency[$index] +1;
-        }  
-        //return frequency index with list of values   
+        }     
     }
-    //call frequency index for new loop
-    //loop through frequency to find highest value
-    for($value in $frequency)
-    {
-        //campare values and pick out the highest frequency
-        //figure out the associated value to frequency
-    }
-    //return highest frequency value
     
-}
-    
-   
-{
-    float $modeValue; //value to return
-    float $countArray[] = {}; //new array to evaluate what is the highest frequency number
-    for ($i = 0; $i < size($num); $i++) //this for loop should take the each element in the array and count how often the number occurs
-    {
-        int $currentIndex = $i;
-        int $countNum = 0; //running total of how often it occurs
-        for ($i = 0; $i <size($num); $i++) //nested loop that does the counting by comparing the current element to each number in the entire array
-        {
-         
-            if ($num[$currentIndex] == $num[$i])
-            {
-                $countNum++;
-            }
-
-        }
-        $countArray[$i] = $countNum; //after counting how often the number appears in the array it creates a new array that parrallels the current array and counts how often each number occurs
-        $countNum = 0;
-    }
-     //this next section uses the new array to figure out what the index location of the highest occuring number is. (This does not take into account the possibility of mulptiple mode values
-    int $highestValue = 0;
+    int $highestFrequency = 0;
     int $valueLocation;
-   
-    for ($i = 0; $i < size($countArray); $i++) //this loop goes through countArray and if the current element in countArray is larger than the highest value variable, it overwrites the variable then assigns the value location
+    
+    for($i=0; $i<size($frequency); $i++)
     {
-        if($countArray[$i] > $highestValue)
+        if($frequency[$i]>$highestFrequency)
         {
-            $highestValue = $countArray[$i];
+            $highestFrequency = $frequency[$i];
             $valueLocation = $i;
         }
     }
-   
-    $modeValue = $num[$valueLocation]; //uses the value location from the above for loop to determine which number in the num array is the mode
-   
+    $modeValue = $num[$valueLocation];
+    
     return $modeValue;
-   
-   
+    
 }
+
+int $ModeCalculation = Mode({3,8,5,10,3,7,7,3,2});
+print $ModeCalculation;
