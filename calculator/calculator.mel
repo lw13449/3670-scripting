@@ -25,6 +25,24 @@ proc float Calculator(float $num[], string $equation)
         $result = `DivideValues($num)`;
         return $result;
     }
+    else if($equation == "mean")
+    {
+        //division
+        $result = `MeanValues($num)`;
+        return $result;
+    }
+    else if($equation == "median")
+    {
+        //division
+        $result = `MedianValues($num)`;
+        return $result;
+    }
+    else if($equation == "mode")
+    {
+        //division
+        $result = `ModeValues($num)`;
+        return $result;
+    }
     else
     {
         print "Invalid Input";
@@ -102,7 +120,95 @@ proc float DivideValues(float $num[])
     return $quotient;
 }
 
-Calculator({4,7,8,10}, "add");
-Calculator({5,3,1}, "subtract");
-Calculator({2,12}, "multiply");
-Calculator({24,2}, "divide");
+//Mean
+proc float MeanValues(float $num[])
+{
+    float $average;
+    float $sum = 0;
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum += $num[$i];
+    }
+    $average = $sum / size($num);
+    print "The average of ";
+    for($i=0; $i<size($num); $i++)
+    { 
+        print ($num[$i] + ",");
+    }
+    print (" is " + $average);
+    return $average;
+    
+}
+
+//Median
+proc float MedianValues(float $num[])
+{
+    int $numSize = size($num);
+    float $median, $median1, $median2;
+    $num = `sort $num`;
+    
+    if($numSize % 2 == 0)
+    {        
+        $median1 = $num[$numSize/2];
+        $median2 = $num[$numSize/2-1];
+        $median = ($median1 + $median2)/2;
+    }
+    else
+    {
+        $median = $num[$numSize/2];
+    }
+    print "The median of ";
+    for($i=0; $i<size($num); $i++)
+    { 
+        print ($num[$i] + ",");
+    }
+    print (" is " + $median);
+    return $median;
+}
+
+
+//mode 
+proc float ModeValues(float $num[])
+{
+    float $modeValue;
+    float $values[];
+    float $frequency[];
+    
+    for($i=0; $i<size($num); $i++)
+    {
+        if(!floatArrayContains($num[$i], $values))
+        {
+            $values[size($values)] = $num[$i];
+            $frequency[size($values)] = 1;
+        }
+        else
+        {
+            int $index;
+            $index = floatArrayFind($num[$i], 0, $values);
+            $frequency[$index] = $frequency[$index] +1;
+        }     
+    }
+    
+    int $highestFrequency = 0;
+    int $valueLocation;
+    
+    for($i=0; $i<size($frequency); $i++)
+    {
+        if($frequency[$i]>$highestFrequency)
+        {
+            $highestFrequency = $frequency[$i];
+            $valueLocation = $i;
+        }
+    }
+    $modeValue = $num[$valueLocation];
+    print "The mode of ";
+    for($i=0; $i<size($num); $i++)
+    { 
+        print ($num[$i] + ",");
+    }
+    print (" is " + $modeValue);
+    
+    return $modeValue;
+}
+
+
