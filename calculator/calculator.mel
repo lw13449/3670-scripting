@@ -52,6 +52,7 @@ proc float Calculator(float $num[], string $equation)
     return $result;
 }
 
+
 //addition
 proc float AddValues(float $num[])
 {
@@ -210,5 +211,3 @@ proc float ModeValues(float $num[])
     
     return $modeValue;
 }
-
-
