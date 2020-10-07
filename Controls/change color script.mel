@@ -1,24 +1,31 @@
-proc float[] ChangeColor(float $controls[], int $color)
+proc ColorOverride(int $color)
 {
-    //$controls[] stores selection (ls -sl)
-    //$color = color i want to assign
-    //iterate through controls array (for loop)
-      //find associated shape node
-      //change the color--> set attribute line (setAttr)
-        //enable override on shape
-        //change the shape color to $color (0-31)
-      
-    $controls = `ls -sl`;
-    $color = 14;
-    for($i=0; $i<size($controls); $i++)
+    $selection = `ls -sl`;
+       
+    string $shapes[];
+    for ($obj in $selection)
     {
-        setAttr "$controls[$i].overrideEnabled" 1;
-        setAttr ($controls[$i] + ".overrideColor") ($color);
-        //setAttr "$controls[$i].overrideColor" $color;
-        //$color[$i].color = $color;
-        //changeObjColor $controls[$i].override $color;
-        //setAttr "Cntr_Shape_Shape4.overrideEnabled" 1;
+        $relatives = `listRelatives -shapes $obj`;
+        for ($rel in $relatives)
+        {
+            $shapes[size($shapes)] = $rel;
+        }
     }
-    return $controls;
-
+    if($color <= 0)
+    {
+        for($shape in $shapes)
+        {
+            setAttr ($shape + ".overrideEnabled") 0;
+        }
+    }
+    else
+    {
+        for($shape in $shapes)
+        {
+            setAttr ($shape + ".overrideEnabled") 1;
+            setAttr ($shape + ".overrideColor") $color;
+        }
+    }
 }
+
+ColorOverride(26);
