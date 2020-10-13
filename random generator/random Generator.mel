@@ -1,0 +1,20 @@
+proc RandomGenerator(int $num, float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ)
+{
+    string $selection[] = {};    
+    $selection = `ls -sl`; //current selection
+    
+    for ($obj in $selection)
+    {
+        for($i=0; $i<$num; $i++)
+        {
+            duplicate -rr;
+            float $randomX = `rand $minX $maxX`;
+            float $randomY = `rand $minY $maxY`;
+            float $randomZ = `rand $minZ $maxZ`;        
+            xform -ws -translation $randomX $randomY $randomZ;
+        }
+    }
+    //duplicates   
+}
+
+RandomGenerator(10,0,5,-5,4,-5,4);
