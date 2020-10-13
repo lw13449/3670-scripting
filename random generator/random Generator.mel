@@ -4,7 +4,7 @@ proc RandomGenerator(int $num, float $minX, float $maxX, float $minY, float $max
     $selection = `ls -sl`; //current selection
     
     for ($obj in $selection)
-    {
+    {   
         for($i=0; $i<$num; $i++)
         {
             duplicate -rr;
