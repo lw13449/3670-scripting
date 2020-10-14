@@ -3,14 +3,19 @@ proc RandomGenerator(int $num, float $minX, float $maxX, float $minY, float $max
     string $selection[] = {};    
     $selection = `ls -sl`; //current selection
     
-    for ($obj in $selection)
-    {   
+    for ($j=0; $j<size($selection); $j++)
+    {
+        int $index = $j;    
         for($i=0; $i<$num; $i++)
         {
-            duplicate -rr;
+            string $tempArray[] = {};
+            $tempArray = `duplicate -rr $selection[$index]`;
+            
             float $randomX = `rand $minX $maxX`;
             float $randomY = `rand $minY $maxY`;
-            float $randomZ = `rand $minZ $maxZ`;        
+            float $randomZ = `rand $minZ $maxZ`;  
+            
+            select $tempArray;      
             xform -ws -translation $randomX $randomY $randomZ;
         }
     }
