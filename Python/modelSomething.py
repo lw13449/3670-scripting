@@ -1,0 +1,15 @@
+import maya.cmds as cmds
+
+cmds.polySphere(name="Maracas", radius=1, subdivisionsAxis=8, subdivisionsHeight=8)
+cmds.select("Maracas.f[0:7]", "Maracas.f[48:55]")
+cmds.scale(0.4,2,0.4)
+cmds.select("Maracas.f[0:7]", "Maracas.f[48:55]")
+cmds.polyExtrudeFacet(constructionHistory=1, translate=[0,-0.4,0])
+cmds.scale(1.5,1.7,1.5)
+cmds.select("Maracas.f[48:55]")
+cmds.scale(1.5,1,1.5)
+cmds.duplicate("Maracas", name="Maracas2")
+cmds.select("Maracas2")
+cmds.move(-2,0,2,)
+cmds.rotate(0,25,45, "Maracas2")
+cmds.rotate(0,25,-45, "Maracas")
