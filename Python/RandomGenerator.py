@@ -2,9 +2,9 @@ import maya.cmds as cmds
 import random
 
 def RandomGenerator(numCopies, minX, maxX, minY, maxY, minZ, maxZ):
-    sel = cmds.ls
+    sel = cmds.ls(selection=True)
 
-    for obj in range(len(cmds.ls)):
+    for obj in range(len(cmds.ls(selection=True))):
         index = obj
 
         for obj in range(numCopies):
