@@ -21,4 +21,4 @@ def SequentialRenamer(stringName):
             
         selection_count += 1            
             
-SequentialRenamer("R_Leg_###_Jnt")
+SequentialRenamer("cargoNetting_##_high")
