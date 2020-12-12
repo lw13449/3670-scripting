@@ -33,5 +33,23 @@ freezeUI = lw_toolBox.FreezeTran.FreezeAndDelUI()
 
 cmds.button(label="Delete History", parent = layout_type, c='freezeUI.DelHistory()')
 
+import lw_toolBox.ParentingUIScript
+
+parentGroupUI = lw_toolBox.ParentingUIScript.ParentGroup()
+
+cmds.button(label="Parent Group", parent = layout_type, c='parentGroupUI.ParentGroup()')
+
+import lw_toolBox.ToggleAxisControlsUI
+
+toggleAxisUI = lw_toolBox.ToggleAxisControlsUI.ToggleAxis()
+
+cmds.button(label="Toggle Local Axis", parent = layout_type, c='toggleAxisUI.ToggleAxis()')
+
+import lw_toolBox.ToggleAxisControlsUI
+
+ChannelBoxUI = lw_toolBox.ToggleAxisControlsUI.ControlChannelUpdate()
+
+cmds.button(label="Channel Box Jnt Orient", parent = layout_type, c='ChannelBoxUI.ControlChannelUpdate()')
+
 
 cmds.showWindow(starting_window)

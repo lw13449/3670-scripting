@@ -7,7 +7,7 @@ class FreezeAndDelUI():
     def create(self):
         self.delete()
             
-        self.random_window = cmds.window(self.freeze_window, title = "Freeze and Delete", widthHeight = (200, 200))
+        self.freeze_window = cmds.window(self.freeze_window, title = "Freeze and Delete", widthHeight = (200, 200))
 
         self.layout_var = cmds.rowColumnLayout(parent=self.freeze_window,  numberOfColumns=5, columnWidth=[(1, 100), (2, 100), (3, 100), (4, 100), (5, 100)])
         
