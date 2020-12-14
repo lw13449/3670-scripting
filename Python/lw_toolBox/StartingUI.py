@@ -48,12 +48,6 @@ cmds.text(label="Select Parent, then Child", parent = self.layout_var)
 
 import lw_toolBox.ToggleAxisControlsUI
 
-toggleAxisUI = lw_toolBox.ToggleAxisControlsUI.ToggleAxis()
-
-cmds.button(label="Toggle Local Axis", parent = layout_type, c='toggleAxisUI.ToggleAxis()')
-
-import lw_toolBox.ToggleAxisControlsUI
-
 ChannelBoxUI = lw_toolBox.ToggleAxisControlsUI.ControlChannelUpdate()
 
 cmds.button(label="Channel Box Jnt Orient", parent = layout_type, c='ChannelBoxUI.ControlChannelUpdate()')
