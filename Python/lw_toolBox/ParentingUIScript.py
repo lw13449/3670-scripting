@@ -13,6 +13,7 @@ class ParentingUI():
         
         cmds.button(label="Group", parent = self.layout_var, c=lambda *x: self.ParentGroup())
         cmds.button(label="Parent/Scale Constrain", parent = self.layout_var, c=lambda *x: self.ParentScaleConstrain())
+        cmds.text(label="Select Parent, then Child", parent = self.layout_var)
         
         cmds.showWindow(self.parent_window)
         
@@ -26,14 +27,16 @@ class ParentingUI():
         for obj in sel:
             group_var = cmds.group(em=True)
             cmds.parent(obj, group_var)
-            
-    
+                
     def ParentScaleConstrain(self):
         sel = cmds.ls(selection=True)
         
-        for obj in sel:
-            cmds.parentConstraint()
-        
+        if len(sel) % 2 == 1:
+            cmds.error('Uneven selection. Please try again')
+        else:                
+            for obj in range(0, len(sel), 2):
+                cmds.parentConstraint(sel[obj], sel[obj+1])
+                            
 parent_window = ParentingUI()
 
 parent_window.create()

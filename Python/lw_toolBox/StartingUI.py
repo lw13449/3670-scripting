@@ -39,6 +39,13 @@ parentGroupUI = lw_toolBox.ParentingUIScript.ParentGroup()
 
 cmds.button(label="Parent Group", parent = layout_type, c='parentGroupUI.ParentGroup()')
 
+import lw_toolBox.ParentingUIScript
+
+parentGroupUI = lw_toolBox.ParentingUIScript.ParentScaleConstrain()
+
+cmds.button(label="Parent Constraint", parent = layout_type, c='parentGroupUI.ParentScaleConstrain()')
+cmds.text(label="Select Parent, then Child", parent = self.layout_var)
+
 import lw_toolBox.ToggleAxisControlsUI
 
 toggleAxisUI = lw_toolBox.ToggleAxisControlsUI.ToggleAxis()
