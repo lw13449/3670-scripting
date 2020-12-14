@@ -28,7 +28,4 @@ class RiggingAxisUI():
             cmds.setAttr(s+'.jointOrientY', cb=True)
             cmds.setAttr(s+'.jointOrientZ', cb=True)
             cmds.setAttr(s+'.displayLocalAxis', cb=True)
-                    
-rigging_window = RiggingAxisUI()
-
-rigging_window.create()     
+                        

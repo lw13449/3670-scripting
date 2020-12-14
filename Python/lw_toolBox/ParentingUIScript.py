@@ -37,7 +37,3 @@ class ParentingUI():
             for obj in range(0, len(sel), 2):
                 cmds.parentConstraint(sel[obj], sel[obj+1])
                 cmds.scaleConstraint(sel[obj], sel[obj+1])
-                            
-parent_window = ParentingUI()
-
-parent_window.create()
