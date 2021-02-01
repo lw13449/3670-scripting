@@ -20,6 +20,9 @@ class LW_ToolBox():
         cmds.button(label="Parent/Scale Constraint", parent = self.layout_var, c=lambda *x: self.parent_scale_constraint())
         cmds.text(label="Select Parent, then Child", parent = self.layout_var)
         cmds.button(label="Toggle Local Axis", parent = self.layout_var, c=lambda *x: self.toggle_local_axis())
+        cmds.button(label="Create Locator", parent = self.layout_var, c=lambda *x: self.locator_generator())        
+        cmds.button(label="Create Joints", parent = self.layout_var, c=lambda *x: self.joint_generator())               
+        cmds.button(label="Controls UI", parent = self.layout_var, c=lambda *x: self.controls_UI())
         
         cmds.showWindow(self.starting_window)
     
@@ -68,6 +71,24 @@ class LW_ToolBox():
         reload(lw_toolBox.ToggleAxisControlsUI)
         ChannelBoxUI = lw_toolBox.ToggleAxisControlsUI.RiggingAxisUI()
         ChannelBoxUI.ControlChannelUpdate()
+        
+    def locator_generator(self):
+        import lw_toolBox.LocatorGenerator
+        reload(lw_toolBox.LocatorGenerator)
+        ChannelBoxUI = lw_toolBox.LocatorGenerator.LocatorGen()
+        ChannelBoxUI.create_locator()
+        
+    def joint_generator(self):
+        import lw_toolBox.JointGenerator
+        reload(lw_toolBox.JointGenerator)
+        ChannelBoxUI = lw_toolBox.JointGenerator.JointGenerator()
+        ChannelBoxUI.create_joints()
+        
+    def controls_UI(self):
+        import lw_toolBox.ControlsUI
+        reload(lw_toolBox.ControlsUI)
+        ChannelBoxUI = lw_toolBox.ControlsUI.ControlGenerator()
+        ChannelBoxUI.create()
         
 starting_window = LW_ToolBox()
 
