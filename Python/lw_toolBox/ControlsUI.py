@@ -30,7 +30,7 @@ class ControlGenerator():
             ctrl_var = cmds.circle(c=(0,0,0))
             group_var = cmds.group(a=True, empty=True, world=True)
             cmds.select(obj, add=True)
-            cmds.MatchTransform(group_var, obj)
+            cmds.MatchTransform(group_var, obj, pos=True, rot=True)
             cmds.select(group_var, d=True)
             cmds.select(obj, d=True)
             cmds.select(ctrl_var, add=True)
