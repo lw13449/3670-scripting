@@ -1,7 +1,7 @@
 import sys
 
-if 'D:/Documents/FALL 2020/3670 scripting/3670-scripting/Python' not in sys.path:
-    sys.path.append('D:/Documents/FALL 2020/3670 scripting/3670-scripting/Python')
+if 'D:/Documents/Class Stuffs/Spring 2021/3660 Rigging/3670-scripting/Python' not in sys.path:
+    sys.path.append('D:/Documents/Class Stuffs/Spring 2021/3660 Rigging/3670-scripting/Python')
 
 reload(sys)
 
