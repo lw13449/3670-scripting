@@ -28,6 +28,7 @@ class ParentingUI():
             group_var = cmds.group(em=True)
             cmds.matchTransform(group_var, obj)
             cmds.parent(obj, group_var)
+            cmds.rename(group_var, obj+"_Grp")
                 
     def ParentScaleConstrain(self):
         sel = cmds.ls(selection=True)
