@@ -10,4 +10,5 @@ class JointGenerator():
         for obj in sel:
             joint_var = cmds.joint(obj)
             cmds.select(joint_var)
+            cmds.rename(joint_var, obj)
             cmds.parent(w=True)

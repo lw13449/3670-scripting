@@ -26,6 +26,7 @@ class ParentingUI():
         
         for obj in sel:
             group_var = cmds.group(em=True)
+            cmds.matchTransform(group_var, obj)
             cmds.parent(obj, group_var)
                 
     def ParentScaleConstrain(self):
